@@ -1,6 +1,6 @@
 import { Container, Button, Description, Checkbox } from './styles.ts'
 
-export function Form() {
+export function Task() {
   return (
     <Container>
       <Checkbox></Checkbox>

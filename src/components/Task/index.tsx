@@ -1,11 +1,14 @@
-import { Container, Button, Description, Checkbox } from './styles.ts'
+import { Container, Button, Description } from './styles.ts'
 
-export function Task() {
+interface TaskProps {
+  description: string
+}
+
+export function Task({ description }: TaskProps) {
   return (
     <Container>
-      <Checkbox></Checkbox>
-      <Description></Description>
-      <Button></Button>
+      <Description>{description}</Description>
+      <Button />
     </Container>
   )
 }

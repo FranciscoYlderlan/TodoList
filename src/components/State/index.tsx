@@ -1,10 +1,15 @@
 import { Container, Value, Label } from './styles.ts'
 
-export function State() {
+interface StateProps {
+  label: string
+  value?: number
+}
+
+export function State({ value = 0, label }: StateProps) {
   return (
     <Container>
-      <Label></Label>
-      <Value></Value>
+      <Label>{label}</Label>
+      <Value>{value}</Value>
     </Container>
   )
 }

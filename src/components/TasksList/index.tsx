@@ -1,30 +1,41 @@
-import { Container, List, InfoStates, Message } from './styles.ts'
+import {
+  Container,
+  List,
+  EmptyContainer,
+  MessageBold,
+  MessageLight,
+} from './styles.ts'
 
-import { State } from '../State'
 import { Task } from '../Task'
 
-export function TasksList() {
+import Clipboard from '../../../assets/clipboard.svg'
+
+interface TaskProps {
+  description: string
+  status: boolean
+}
+
+interface TaskListProps {
+  tasks?: TaskProps[]
+}
+export function TasksList({ tasks }: TaskListProps) {
   return (
     <Container>
-      <InfoStates>
-        <State />
-        <State />
-      </InfoStates>
       <List
-        data={participants}
-        keyExtractor={(name) => name}
+        data={tasks}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Task
-            name={item}
-            // handleRemove={() => }
-          />
+          <Task description={item.description} completed={item.status} />
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
-          <Message>
-            Você ainda não tem terafas cadastradas Crie tarefas e organize seus
-            itens a fazer
-          </Message>
+          <EmptyContainer>
+            <Clipboard />
+            <MessageBold>Você ainda não tem terafas cadastradas</MessageBold>
+            <MessageLight>
+              Crie tarefas e organize seus itens a fazer
+            </MessageLight>
+          </EmptyContainer>
         }
       />
     </Container>

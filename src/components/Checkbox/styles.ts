@@ -11,7 +11,7 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
 `
 export const Check = styled(Animated.View)`
-  background-color: #5e60ce;
+  background-color: #4ea8de;
   height: 24px;
   width: 24px;
   border-radius: 999px;
@@ -22,7 +22,7 @@ export const Check = styled(Animated.View)`
 export const Uncheck = styled.View`
   height: 24px;
   width: 24px;
-  border: 2px solid #4ea8de;
+  border: 2px solid #5e60ce;
   border-radius: 999px;
 `
 

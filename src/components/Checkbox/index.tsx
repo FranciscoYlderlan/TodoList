@@ -18,7 +18,11 @@ interface CheckboxProps extends TouchableOpacityProps {
   title: string
   checked?: boolean
 }
-export function Checkbox({ title, checked = false, ...rest }: CheckboxProps) {
+export function Checkbox({
+  description,
+  checked = false,
+  ...rest
+}: CheckboxProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
@@ -37,7 +41,7 @@ export function Checkbox({ title, checked = false, ...rest }: CheckboxProps) {
         <View className="h-8 w-8 bg-zinc-900 border-2 border-zinc-800 rounded-lg" />
       )}
 
-      <Text className="text-white ml-3">{title}</Text>
+      <Text className="text-white ml-3">{description}</Text>
     </TouchableOpacity>
   )
 }

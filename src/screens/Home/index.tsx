@@ -1,10 +1,23 @@
-import { Container, Button, Input } from './styles.ts'
+import { StatusBar } from 'expo-status-bar'
+import { Container, BoxLogo, StateLabels } from './styles.ts'
+import { Background } from '../../components/Background'
 
-export function Form() {
+import Logo from '../../../assets/logo.svg'
+import { Form } from '../../components/Form'
+import { State } from '../../components/State'
+export function Home() {
   return (
     <Container>
-      <Input></Input>
-      <Button></Button>
+      <BoxLogo>
+        <Logo />
+      </BoxLogo>
+      <Form />
+      <StateLabels>
+        <State label="Concluídas" />
+        <State label="Criadas" />
+      </StateLabels>
+      <Background />
+      <StatusBar style="light" translucent />
     </Container>
   )
 }

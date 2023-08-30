@@ -1,7 +1,37 @@
 import styled from 'styled-components/native'
+interface themeProps {
+  label: string
+  theme?: string
+}
+export const Container = styled.View`
+  flex-direction: row;
+  gap: 8px;
+`
 
-export const Container = styled.View``
+export const Label = styled.Text`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
 
-export const Label = styled.Text``
+  color: ${({ label }: themeProps) =>
+    label === 'Criadas' ? '#4EA8DE' : '#8284FA'};
+`
 
-export const Value = styled.Text``
+export const Circle = styled.View`
+  border-radius: 999px;
+  background-color: #333333;
+
+  padding: 0 8px;
+  justify-content: center;
+  align-items: center;
+`
+export const Value = styled.Text`
+  color: white;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+`

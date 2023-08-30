@@ -8,7 +8,7 @@ export function Form() {
         placeholder="Adicione uma nova tarefa"
         placeholderTextColor="#808080"
       />
-      <Button>
+      <Button activeOpacity={0.7}>
         <AntDesign name="pluscircleo" size={18} color="white" />
       </Button>
     </Container>

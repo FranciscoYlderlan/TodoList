@@ -1,5 +1,6 @@
-import { Container, Button, Description } from './styles.ts'
-
+import { Container, Button } from './styles.ts'
+import { Checkbox } from '../Checkbox'
+import Trash from '../../../assets/trash.svg'
 interface TaskProps {
   description: string
 }
@@ -7,8 +8,10 @@ interface TaskProps {
 export function Task({ description }: TaskProps) {
   return (
     <Container>
-      <Description>{description}</Description>
-      <Button />
+      <Checkbox description={description} checked />
+      <Button>
+        <Trash height={40} width={40} />
+      </Button>
     </Container>
   )
 }

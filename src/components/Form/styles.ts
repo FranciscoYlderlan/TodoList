@@ -15,7 +15,7 @@ export const Input = styled.TextInput`
 `
 
 export const Button = styled.TouchableOpacity`
-  background-color: #1e6f9f;
+  background-color: #5e60ce;
   color: white;
   justify-content: center;
   align-items: center;

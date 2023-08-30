@@ -1,5 +1,5 @@
 import styled from 'styled-components/native'
-interface themeProps {
+interface labelProps {
   label: string
   theme?: string
 }
@@ -13,8 +13,8 @@ export const Label = styled.Text`
   font-style: normal;
   font-weight: 700;
 
-  color: ${({ label }: themeProps) =>
-    label === 'Criadas' ? '#4EA8DE' : '#8284FA'};
+  color: ${({ label }: labelProps) =>
+    label === 'Criadas' ? '#8284FA' : '#4EA8DE'};
 `
 
 export const Circle = styled.View`

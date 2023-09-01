@@ -68,6 +68,7 @@ export function Home() {
 
     return (completedTasks / totalTasks) * 100
   }
+
   return (
     <Container>
       <BoxLogo>

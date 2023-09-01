@@ -6,14 +6,9 @@ import {
   MessageLight,
 } from './styles.ts'
 
-import { Task } from '../Task'
+import { Task, TaskProps } from '../Task'
 
 import Clipboard from '../../../assets/clipboard.svg'
-
-interface TaskProps {
-  description: string
-  status: boolean
-}
 
 interface TaskListProps {
   tasks?: TaskProps[]
@@ -29,7 +24,7 @@ export function TasksList({
     <Container>
       <List
         data={tasks}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item: TaskProps) => item.id}
         renderItem={({ item }) => (
           <Task
             task={item}

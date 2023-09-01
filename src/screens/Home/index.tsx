@@ -58,6 +58,16 @@ export function Home() {
     )
   }
 
+  function calculatePercentageOfCompletedTasks(tasks: TaskProps[]): number {
+    const totalTasks = tasks.length
+    const completedTasks = tasks.filter((task) => task.status === true).length
+
+    if (totalTasks === 0) {
+      return 0
+    }
+
+    return (completedTasks / totalTasks) * 100
+  }
   return (
     <Container>
       <BoxLogo>
@@ -65,10 +75,13 @@ export function Home() {
       </BoxLogo>
       <Form OnAddTasks={handleAddTasks} />
       <StateLabels>
-        <State label="Concluídas" value={5} />
-        <State label="Criadas" value={6} />
+        <State
+          label="Concluídas"
+          value={tasks.filter((task) => task.status === true).length}
+        />
+        <State label="Criadas" value={tasks.length} />
       </StateLabels>
-      <ProgressBar progress={90} />
+      <ProgressBar progress={calculatePercentageOfCompletedTasks(tasks)} />
 
       <TasksList
         tasks={tasks}

@@ -17,16 +17,15 @@ interface TaskProps {
 
 interface TaskListProps {
   tasks?: TaskProps[]
+  onRemove: (id: number) => void
 }
-export function TasksList({ tasks }: TaskListProps) {
+export function TasksList({ tasks, onRemove }: TaskListProps) {
   return (
     <Container>
       <List
         data={tasks}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Task description={item.description} completed={item.status} />
-        )}
+        renderItem={({ item }) => <Task task={item} onRemove={onRemove} />}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <EmptyContainer>

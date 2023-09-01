@@ -17,15 +17,26 @@ interface TaskProps {
 
 interface TaskListProps {
   tasks?: TaskProps[]
-  onRemove: (id: number) => void
+  handleRemove: (id: number) => void
+  handleChange: (id: number) => void
 }
-export function TasksList({ tasks, onRemove }: TaskListProps) {
+export function TasksList({
+  tasks,
+  handleRemove,
+  handleChange,
+}: TaskListProps) {
   return (
     <Container>
       <List
         data={tasks}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <Task task={item} onRemove={onRemove} />}
+        renderItem={({ item }) => (
+          <Task
+            task={item}
+            handleRemove={handleRemove}
+            handleChange={handleChange}
+          />
+        )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <EmptyContainer>

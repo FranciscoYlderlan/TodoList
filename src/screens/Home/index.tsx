@@ -16,14 +16,6 @@ import { useState } from 'react'
 import { Alert } from 'react-native'
 export function Home() {
   // : Array<TaskProps> ou : TaskProps[]
-  // const tasks = [
-  //   { id: 1, description: 'Andar de skate e fazer um 360º', status: true },
-  //   { id: 2, description: 'Dançar um forrozin com a morena', status: true },
-  //   { id: 3, description: 'Comer um churrasco com a rapaziada', status: true },
-  //   { id: 4, description: 'Fazer um sumpley de guitarra', status: true },
-  //   { id: 5, description: 'Pegar uma febre de paixão', status: false },
-  //   { id: 6, description: 'Dançar de rosto coladinho', status: true },
-  // ]
   const [tasks, setTasks] = useState<TaskProps[]>([])
 
   function handleAddTasks(newTask: TaskProps) {
@@ -40,6 +32,7 @@ export function Home() {
       setTasks([...tasks, newTask])
     }
   }
+
   function handleRemoveTask(id: number) {
     Alert.alert('Remover', 'Deseja remover esta tarefa?', [
       {
@@ -53,6 +46,18 @@ export function Home() {
       },
     ])
   }
+
+  function handleChangeStatusTask(id: number) {
+    setTasks((prevState) =>
+      prevState.map((task) => {
+        if (task.id === id) {
+          return { ...task, status: !task.status }
+        }
+        return task
+      }),
+    )
+  }
+
   return (
     <Container>
       <BoxLogo>
@@ -65,7 +70,11 @@ export function Home() {
       </StateLabels>
       <ProgressBar progress={90} />
 
-      <TasksList tasks={tasks} onRemove={handleRemoveTask} />
+      <TasksList
+        tasks={tasks}
+        handleRemove={handleRemoveTask}
+        handleChange={handleChangeStatusTask}
+      />
       <Background />
       <StatusBar style="light" translucent />
     </Container>
